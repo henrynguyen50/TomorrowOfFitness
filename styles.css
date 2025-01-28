@@ -1,0 +1,23 @@
+/* Load the Arcane Nine font */
+@font-face {
+    font-family: 'Arcane Nine';
+    src: url('fonts/ArcaneNine.woff2') format('woff2'),
+         url('fonts/ArcaneNine.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the font to the body or specific elements */
+body {
+    font-family: 'Arcane Nine', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Arcane Nine', sans-serif;
+    font-weight: normal; /* Adjust if needed */
+}
+
+p {
+    font-family: 'Arcane Nine', sans-serif;
+    font-size: 16px; /* Adjust as needed */
+}
