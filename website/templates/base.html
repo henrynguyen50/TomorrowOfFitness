@@ -26,7 +26,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated %} <!-- make a new page by doing id= "page" href = /filepath-->
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           <a class="nav-item nav-link" id="FAQ" href="/FAQ">FAQ</a>
@@ -82,7 +82,7 @@
     method: "POST",
     body: JSON.stringify({ noteId: noteId }),
   }).then((_res) => {
-    window.location.href = "/";
+    window.location.href = "/WorkoutPlanner"; <!-- currently if you delete a note it redirects to workout planner, if notes is in a new page if you click close it will direct here-->
   });
   }
 </script>

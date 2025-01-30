@@ -1,11 +1,87 @@
-{% extends "base.html" %} {% block title %}Workout{% endblock %} {% block content
-    %}
-   
-    
-    <h1 align = "center">So how do I structure my workouts?</h1>
-    
-    
-    
-    
-    {% endblock %}
-    
+{% extends "base.html" %} 
+{% block title %}Workout{% endblock %} 
+{% block content %}
+
+<br>
+<h1 align="center">So how do I structure my workouts?</h1>
+<h4 align="center">Going off the checklist and other factors, the best splits are Upper Lower and Full Body</h4>
+<h6 align="center">I am going to give you templates for both and some pointers for both, edit the workouts how you want, do what you want.</h6>
+
+<br>
+
+<style>
+    #full_body_note, #upper_lower_note {
+        width: 1100px;  /* Adjust width */
+        height: 300px; /* Adjust height */
+    }
+</style>
+
+<!-- Full Body Section -->
+<h1 align="center">Full Body</h1>
+<ul class="list-group list-group-flush" id="full-body-notes">
+  {% for note in user.notes %}
+    {% if note.data.startswith("Full Body:") %}
+      <li class="list-group-item">
+        {{ note.data[10:] }}  <!-- Removes "Full Body:" from display -->
+        <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="full_body_note" id="full_body_note" class="form-control">
+Full Body
+Day 1
+Leg extension
+Hamstring curl
+Incline Smith Press
+Wide Grip Pulldown
+Tricep Pushdown
+Bicep Curl 
+Day 2
+Hamstring Curl
+Tbar row
+Lat raise
+Bicep Curl
+Tricep Pushdown
+Leg Press
+Day 3
+Shoulder Press
+Pec Deck
+Lat Row
+Tbar Row
+Leg extension
+    </textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add Full Body Workout</button>
+    </div>
+</form>
+
+<br><br>
+
+<!-- Upper Lower Section -->
+<h1 align="center">Upper Lower</h1>
+<ul class="list-group list-group-flush" id="upper-lower-notes">
+  {% for note in user.notes %}
+    {% if note.data.startswith("Upper Lower:") %}
+      <li class="list-group-item">
+        {{ note.data[12:] }}  <!-- Removes "Upper Lower:" from display -->
+        <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="upper_lower_note" id="upper_lower_note" class="form-control"></textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add Upper Lower Workout</button>
+    </div>
+</form>
+
+{% endblock %}
