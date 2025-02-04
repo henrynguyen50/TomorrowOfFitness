@@ -9,3 +9,5 @@ function deleteNote(noteId) {
     window.location.href = "/WorkoutPlanner.html"; // Redirect 
   });
 }
+
+

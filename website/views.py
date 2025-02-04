@@ -41,6 +41,11 @@ def workout():
 
     return render_template("WorkoutPlanner.html", user=current_user)
 
+@views.route('/guidelines')
+@login_required
+def guidelines():
+
+    return render_template("guidelines.html", user=current_user)
 
 @views.route('/brainrot')
 @login_required
@@ -59,3 +64,5 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+

@@ -6,6 +6,10 @@
 <h1 align="center">So how do I structure my workouts?</h1>
 <h4 align="center">Going off the checklist and other factors, the best splits are Upper Lower and Full Body</h4>
 <h6 align="center">I am going to give you templates for both and some pointers for both, edit the workouts how you want, do what you want.</h6>
+<h8 align="center">Full Body Tips: The goal is to hit a muscle at least 2-3 times a week, some muscles can be hit 3 times a week and some might be not able to. Muscles that are easily damaged include the chest, biceps, triceps, and hamstrings. If you can recover fast enough to hit these muscles 3x a week go right ahead.
+</h8>
+<br>
+<h8 align="center">Upper Lower Tips: The goal here is to hit a muscle 2 times a week and recover the best, which is why it's better than PPL(Push Pull Legs). 
 
 <br>
 
@@ -22,7 +26,7 @@
   {% for note in user.notes %}
     {% if note.data.startswith("Full Body:") %}
       <li class="list-group-item">
-        {{ note.data[10:] }}  <!-- Removes "Full Body:" from display -->
+        {{ note.data[11:] | replace('\n', '<br>') | safe }}  <!-- Removes "Full Body:" from display -->
         <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -30,29 +34,32 @@
     {% endif %}
   {% endfor %}
 </ul>
-<form method="POST">
+<form method="POST" id="full-body-form">
     <textarea name="full_body_note" id="full_body_note" class="form-control">
 Full Body
 Day 1
-Leg extension
-Hamstring curl
-Incline Smith Press
-Wide Grip Pulldown
-Tricep Pushdown
-Bicep Curl 
+Leg extension 1x
+Hamstring curl 1x
+Incline Smith Press 1x
+Wide Grip Pulldown 1x
+Tricep Pushdown 1x
+Bicep Curl 1x
+
 Day 2
-Hamstring Curl
-Tbar row
-Lat raise
-Bicep Curl
-Tricep Pushdown
-Leg Press
+Hamstring Curl 1x
+Tbar row 1x
+Lat raise 1x
+Bicep Curl 1x 
+Tricep Pushdown 1x
+Leg Press 1x
+
 Day 3
-Shoulder Press
-Pec Deck
-Lat Row
-Tbar Row
-Leg extension
+Shoulder Press 1x
+Pec Deck 1x
+Lat Row 1x
+Tbar Row 1x
+Leg extension 1x
+Calf 1x
     </textarea>
     <br />
     <div align="center">
@@ -68,7 +75,7 @@ Leg extension
   {% for note in user.notes %}
     {% if note.data.startswith("Upper Lower:") %}
       <li class="list-group-item">
-        {{ note.data[12:] }}  <!-- Removes "Upper Lower:" from display -->
+        {{ note.data[12:] | replace('\n', '<br>') | safe  }}  <!-- Removes "Upper Lower:" from display -->
         <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -77,7 +84,38 @@ Leg extension
   {% endfor %}
 </ul>
 <form method="POST">
-    <textarea name="upper_lower_note" id="upper_lower_note" class="form-control"></textarea>
+    <textarea name="upper_lower_note" id="upper_lower_note" class="form-control">
+Upper Day A
+Chest press 2x
+Shoulder press 1x
+Upper back row 2x
+Pulldown 2x
+Tricep 1x
+Bicep 1x
+
+Lower Day B
+Leg press 2x
+Leg ext 1x
+Ham curl 2x
+Calf 2x
+Adductor 1x
+      
+Upper Day B
+Incline press 1x
+Chest fly 1x
+Upper Back row 2x
+Lower lateral row 2x
+Lat raise 2x
+Tricep 1x
+Bi 1x
+      
+Lower Day B
+Leg press 2x
+Leg ext 1x
+Ham curl 2x
+Calf 2x
+Adductor 1x
+    </textarea>
     <br />
     <div align="center">
       <button type="submit" class="btn btn-primary">Add Upper Lower Workout</button>
