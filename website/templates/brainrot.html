@@ -1,7 +1,63 @@
 {% extends "base.html" %} {% block title %}brainrot{% endblock %} {% block content
     %}
    
-    <h1>add tiktok videos and ig reels here to scroll through</h1>
+    <!-- Container for the full-screen video feed -->
+    <div class="video-container">
+        <!-- Enables vertical scrolling between videos -->
+        <div class="video-scroller">
+            <!-- Individual video item container -->
+            {% for video in videos %}
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <!-- TikTok video embed -->
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/{{video.username}}/video/{{video.id}}" 
+                        data-video-id="{{video.id}}">
+                        <section></section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <style>
+        /* Full width/height container for video feed */
+        .video-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Enables smooth scrolling between videos */
+        .video-scroller {
+            height: 100%;
+            overflow-y: scroll; /*enables vertical scrolling*/
+            scroll-snap-type: y mandatory;
+        }
+
+        /* Individual video container styling */
+        .video-item {
+            height: 100vh;
+            scroll-snap-align: start; /*snaps to the top of video*/
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Video wrapper to maintain aspect ratio and centering */
+        .video-wrapper {
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            max-height: 889px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 
     {% endblock %}
-    
