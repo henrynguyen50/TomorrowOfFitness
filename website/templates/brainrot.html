@@ -6,18 +6,18 @@
         <!-- Enables vertical scrolling between videos -->
         <div class="video-scroller">
             <!-- Individual video item container -->
-            {% for video in videos %}
             <div class="video-item">
+                <!-- First video wrapper -->
                 <div class="video-wrapper">
-                    <!-- TikTok video embed -->
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/{{video.username}}/video/{{video.id}}" 
-                        data-video-id="{{video.id}}">
+                    <blockquote class="tiktok-embed" 
+                        cite="https://www.tiktok.com/scivinhtific/video/7470380143547108638"
+                        data-video-id="7470380143547108638">
                         <section></section>
                     </blockquote>
                     <script async src="https://www.tiktok.com/embed.js"></script>
                 </div>
             </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
 
@@ -50,14 +50,68 @@
         /* Video wrapper to maintain aspect ratio and centering */
         .video-wrapper {
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             height: 100%;
             max-height: 889px;
-            background: #000;
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
         }
     </style>
+
+
+    <!-- script to add embedded tiktok videos, using a for loop does not work, a new blockquote has to be generated for each video -->
+     <!-- add a new video by doing addTikTokVideo(url id) -->  
+    <!-- gets a preshuffled dictionary of videos from views.py -->
+
+    <script>
+        function addTikTokVideo(videoUrl, videoId) {
+            const videoScroller = document.querySelector('.video-scroller');
+            
+            // Create the HTML structure
+            const videoItem = document.createElement('div');
+            videoItem.className = 'video-item';
+            
+            const videoWrapper = document.createElement('div');
+            videoWrapper.className = 'video-wrapper';
+            
+            const blockquote = document.createElement('blockquote');
+            blockquote.className = 'tiktok-embed';
+            blockquote.setAttribute('cite', videoUrl);
+            blockquote.setAttribute('data-video-id', videoId);
+            
+            const section = document.createElement('section');
+            blockquote.appendChild(section);
+            
+            // Assemble the structure
+            videoWrapper.appendChild(blockquote);
+            videoItem.appendChild(videoWrapper);
+            videoScroller.appendChild(videoItem);
+            
+            // Load TikTok embed script
+            const script = document.createElement('script');
+            script.src = 'https://www.tiktok.com/embed.js';
+            script.async = true;
+            videoWrapper.appendChild(script);
+        }
+        //tried doing for loop here does not work 
+        addTikTokVideo('https://www.tiktok.com/{{videos[0].username}}/video/{{videos[0].id}}', '{{videos[0].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[1].username}}/video/{{videos[1].id}}', '{{videos[1].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[2].username}}/video/{{videos[2].id}}', '{{videos[2].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[3].username}}/video/{{videos[3].id}}', '{{videos[3].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[4].username}}/video/{{videos[4].id}}', '{{videos[4].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[5].username}}/video/{{videos[5].id}}', '{{videos[5].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[6].username}}/video/{{videos[6].id}}', '{{videos[6].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[7].username}}/video/{{videos[7].id}}', '{{videos[7].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[8].username}}/video/{{videos[8].id}}', '{{videos[8].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[9].username}}/video/{{videos[9].id}}', '{{videos[9].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[10].username}}/video/{{videos[10].id}}', '{{videos[10].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[11].username}}/video/{{videos[11].id}}', '{{videos[11].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[12].username}}/video/{{videos[12].id}}', '{{videos[12].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[13].username}}/video/{{videos[13].id}}', '{{videos[13].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[14].username}}/video/{{videos[14].id}}', '{{videos[14].id}}');
+        addTikTokVideo('https://www.tiktok.com/{{videos[15].username}}/video/{{videos[15].id}}', '{{videos[15].id}}');
+    </script>
 
     {% endblock %}

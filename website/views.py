@@ -4,6 +4,8 @@ from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json
+import time
+from random import shuffle
 
 # Create Blueprint for views
 views = Blueprint('views', __name__)
@@ -54,12 +56,44 @@ def guidelines():
 @views.route('/brainrot')
 @login_required
 def brainrot():
+    #list of dictionaries, each dictionary contains a username and id of a tiktok video
+    #can access by index
     videos = [
-        {
-            'username': '@coach_mundy_','id': '7469448608555830558'
-        }
-    ]
+        {'username': 'coach_mundy_', 'id': '7473904064862948638'},
+        {'username': 'coach_mundy_', 'id': '7466475546600410399'},
+        {'username': 'coach_mundy_', 'id': '7460530053974134047'},
+        {'username': 'coach_mundy_', 'id': '7461275482730908958'},
+        {'username': 'coach_mundy_', 'id': '7472784522883435807'},
+        {'username': 'coach_mundy_', 'id': '7468735293001141535'},
+        {'username': 'coach_mundy_', 'id': '7466118683534822687'},
+        {'username': 'coach_mundy_', 'id': '7462768678178671902'},
+
+        {'username': 'scivinhtific', 'id': '7470380143547108638'},
+        {'username': 'scivinhtific', 'id': '7463943707885128991'},
+        {'username': 'scivinhtific', 'id': '7461815511626665246'},
+        {'username': 'scivinhtific', 'id': '7459454317100141867'},
+        {'username': 'scivinhtific', 'id': '7456136473260166446'},
+        {'username': 'scivinhtific', 'id': '7458438938135579950'},
+        {'username': 'scivinhtific', 'id': '7455995333333333333'},
         
+        {'username': 'dxklanx', 'id': '7463959288533273864'},
+        {'username': 'dxklanx', 'id': '7460315691804052743'},
+        {'username': 'dxklanx', 'id': '7459125277927542024'},
+        {'username': 'dxklanx', 'id': '7455798535116705031'},
+        {'username': 'dxklanx', 'id': '7472185255336742162'},
+
+        {'username': 'doom_mxn', 'id': '7456905543362333984'},
+        {'username': 'doom_mxn', 'id': '7452771458209664288'},
+        {'username': 'doom_mxn', 'id': '7452116449713212705'},
+        {'username': 'doom_mxn', 'id': '7450558446879001888'},
+
+        {'username': 't_nutrition_fitness', 'id': '7472393756193443118'},
+        
+
+    ]
+    import random
+    random.seed(time.time())
+    shuffle(videos)
     # Render brainrot page template with social media embeds
     return render_template("brainrot.html", user=current_user, videos=videos)
 
