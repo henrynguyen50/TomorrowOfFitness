@@ -89,7 +89,12 @@ def brainrot():
 
         {'username': 't_nutrition_fitness', 'id': '7472393756193443118'},
         
-
+        {'username': 'coach_mundy_', 'id': '7474609601850182943'},
+        {'username': 'coach_mundy_', 'id': '7474263950129974559'},
+        {'username': 'scientificallyjacked', 'id': '7463206872812637486'},
+        {'username': 'scientificallyjacked', 'id': '7459474781138783534'},
+        {'username': 'scientificallyjacked', 'id': '7456134075275857198'},
+        {'username': 'scientificallyjacked', 'id': '7451785471686036782'},
     ]
     import random
     random.seed(time.time())
