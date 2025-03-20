@@ -34,6 +34,13 @@
             height: 100%;
             overflow-y: scroll; /*enables vertical scrolling*/
             scroll-snap-type: y mandatory;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;     /* Firefox */
+        }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .video-scroller::-webkit-scrollbar {
+        display: none;
         }
 
         /* Individual video container styling */
@@ -95,7 +102,7 @@
             script.async = true;
             videoWrapper.appendChild(script);
         }
-        //tried doing for loop here does not work as a new video has to have its own video block will figure out
+        //tried doing for loop here does not work 
         addTikTokVideo('https://www.tiktok.com/{{videos[0].username}}/video/{{videos[0].id}}', '{{videos[0].id}}');
         addTikTokVideo('https://www.tiktok.com/{{videos[1].username}}/video/{{videos[1].id}}', '{{videos[1].id}}');
         addTikTokVideo('https://www.tiktok.com/{{videos[2].username}}/video/{{videos[2].id}}', '{{videos[2].id}}');
