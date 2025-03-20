@@ -67,6 +67,8 @@ def brainrot():
         {'username': 'coach_mundy_', 'id': '7468735293001141535'},
         {'username': 'coach_mundy_', 'id': '7466118683534822687'},
         {'username': 'coach_mundy_', 'id': '7462768678178671902'},
+        {'username': 'coach_mundy_', 'id': '7474609601850182943'},
+        {'username': 'coach_mundy_', 'id': '7474263950129974559'},
 
         {'username': 'scivinhtific', 'id': '7470380143547108638'},
         {'username': 'scivinhtific', 'id': '7463943707885128991'},
@@ -89,12 +91,20 @@ def brainrot():
 
         {'username': 't_nutrition_fitness', 'id': '7472393756193443118'},
         
-        {'username': 'coach_mundy_', 'id': '7474609601850182943'},
-        {'username': 'coach_mundy_', 'id': '7474263950129974559'},
+        
         {'username': 'scientificallyjacked', 'id': '7463206872812637486'},
         {'username': 'scientificallyjacked', 'id': '7459474781138783534'},
         {'username': 'scientificallyjacked', 'id': '7456134075275857198'},
         {'username': 'scientificallyjacked', 'id': '7451785471686036782'},
+        {'username': 'scientificallyjacked', 'id': '7475793442187087150'},
+
+        {'username': 'calciumionsfanclub', 'id': '7472889193048313106'},
+        {'username': 'calciumionsfanclub', 'id': '7470716387825028370'},
+        {'username': 'calciumionsfanclub', 'id': '7468587000837246215'},
+        {'username': 'calciumionsfanclub', 'id': '7467722950817369362'},
+        {'username': 'calciumionsfanclub', 'id': '7467382448259665170'},
+        {'username': 'calciumionsfanclub', 'id': '7467145802066988295'},
+        {'username': 'calciumionsfanclub', 'id': '7465657880784473362'}
     ]
     import random
     random.seed(time.time())
